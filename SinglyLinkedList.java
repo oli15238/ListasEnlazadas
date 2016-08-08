@@ -195,8 +195,15 @@ public class SinglyLinkedList<E> implements IList<E>
 
 	@Override
 	public void add(int i, E o) {
-		// TODO Auto-generated method stub
-		
+		E finger = head;
+		for (int x = 0; x<i; x++){
+			if (finger.next().value() == null)
+				break;
+			E prev = finger;
+			finger = finger.next();
+		}
+		prev.setNext(o);
+		o.setNext(finger);
 	}
 
 	@Override
